@@ -1,49 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApplication4
+namespace Csharpjanet
 {
-    class Program
+    class employee
     {
+        public int empId;
+        public string empName;
+        public string empType;
+        public employee(int jId, string jName, string jType)
+        {
+            empId = jId;
+            empName = jName;
+            empType = jType;
+        }
+        public double payment()
+        {
+            if(empType == "M-E")
+            {
+                double t,s,r;
+                int grossSalary=50000;
+                t=(grossSalary*18)/100;
+                s=grossSalary-t;
+                r=s*3/100;
+                return (s-r);
+
+
+            }
+            else if(empType == "T-E")
+            {
+                double d;
+                int grossSalary=3000;
+                d=grossSalary*18/100;
+                return (grossSalary-d);
+            } 
+            else{
+                double e,f,g;
+                int grossSalary=1500;
+                e=(grossSalary*18/100);
+                f=grossSalary-e;
+                g=(f*0.15)/100;
+                return (g+f); 
+            }           
+        }
         static void Main(string[] args)
         {
-            double number1;
-            double number2;
-            int choose;
-
-            Console.WriteLine("enter num1");
-            number1 = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("enter number2");
-            number2 = Convert.ToDouble(Console.ReadLine());
-
-            var abj = new Classjosue();
-            abj.operators();
-
-            Console.WriteLine("choose an operation");
-            choose = Convert.ToInt32 (Console.ReadLine());
-
-            switch(choose)
-            {
-                case 1:
-                    Console.WriteLine("addition= {0}", abj.addition(number1, number2));
-                    break;
-                case 2:
-                    Console.WriteLine("subtruction= {0}", abj.subtruction(number1, number2));
-                    break;
-                case 3:
-                    Console.WriteLine("multiplication= {0}", abj.multiplication(number1, number2));
-                    break;
-                case 4:
-                    Console.WriteLine("division= {0}", abj.division(number1, number2));
-                    break;
-            }
-           
-
-            Console.ReadLine();
+            employee employee1 = new employee(1, "uwase", "M-E");
+            employee employee2 = new employee(2, "uwambaye", "M-E");
+            employee employee3 = new employee(3, "karisa", "T-E");
+            employee employee4 = new employee(4, "viviane", "T-E");
+            employee employee5 = new employee(5, "albert", "T-E");
+            employee employee6 = new employee(6, "karinganire", "E-E");
+            employee employee7 = new employee(7, "janet", "E-E");
+            employee employee8 = new employee(8, "sylvine", "E-E");
+            Console.WriteLine(employee1.payment());
+            Console.WriteLine("worked by janet217080332");
         }
     }
 }
